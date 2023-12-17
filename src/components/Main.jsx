@@ -1,5 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View} from "react-native";
+
+import RepositoryList from './RepositoryList'
 
 const styles = StyleSheet.create({
   container: {
@@ -13,7 +15,7 @@ const styles = StyleSheet.create({
 const Main = () => {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!!!</Text>
+      <RepositoryList />
       <StatusBar style="auto" />
     </View>
   )
