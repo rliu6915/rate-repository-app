@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, StatusBar} from 'react-native';
 
-import Text from './Text';
+import Text from '../Text';
 
 const styles = StyleSheet.create({
   container: {

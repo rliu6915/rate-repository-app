@@ -13,9 +13,9 @@ const styles = StyleSheet.create({
     height: 10,
   },
   container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-  },
+    flexDirection: "row",
+    marginTop: StatusBar.currentHeight || 0
+  }
 });
 
 const repositories = [

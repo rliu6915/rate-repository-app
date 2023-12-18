@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View} from "react-native";
 
-import RepositoryList from './RepositoryList'
-import AppBar from './AppBar';
+import RepositoryList from './RepositoryList/RepositoryList'
+import AppBar from './AppBar/AppBar';
 
 const styles = StyleSheet.create({
   container: {
