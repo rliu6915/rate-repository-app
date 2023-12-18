@@ -7,7 +7,7 @@ import AppBar from './AppBar/AppBar';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: `#e1e4e8`,
     alignItems: 'center',
     justifyContent: 'center',
   },

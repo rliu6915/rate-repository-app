@@ -5,7 +5,8 @@ import Text from "../Text"
 const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
-    paddingRight: 15
+    paddingRight: 15,
+    flexWrap: "wrap"
   }
 })
 

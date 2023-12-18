@@ -1,10 +1,16 @@
-import { View } from 'react-native';
+import { View, StyleSheet} from 'react-native';
 
 import ProfileHeader from '../RepositoryItem/ProfileHeader'
 import ProfileStats from '../RepositoryItem/ProfileStats'
 
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff'
+  }
+})
+
 const RepositoryItem = ({props}) => (
-  <View>
+  <View style={styles.container}>
     <ProfileHeader 
       source={props.ownerAvatarUrl} 
       fullName={props.fullName}
