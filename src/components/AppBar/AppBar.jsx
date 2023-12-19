@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
 const AppBar = () => {
   const onPressFunction = () => {
     console.log('Repositories pressed')
+
   }
 
   const onPressFunctionOne = () => {
@@ -27,8 +28,8 @@ const AppBar = () => {
 
   return (
     <View style={styles.container}>
-      <AppBarTab text="Repositories" onPressFunction={onPressFunction} />
-      <AppBarTab text="Sign in" onPressFunction={onPressFunctionOne} />
+      <AppBarTab text="Repositories" onPressFunction={onPressFunction} path="/" />
+      <AppBarTab text="Sign in" onPressFunction={onPressFunctionOne} path="/signin" />
     </View>
   )
 };

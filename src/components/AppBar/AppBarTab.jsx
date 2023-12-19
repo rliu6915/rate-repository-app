@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, StatusBar} from 'react-native';
 
 import Text from '../Text';
+import { Link } from 'react-router-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -9,12 +10,14 @@ const styles = StyleSheet.create({
   },
 })
 
-const AppBarTab = ({text, onPressFunction}) => {
+const AppBarTab = ({text, onPressFunction, path}) => {
   return (
     <Pressable styles={styles.container} onPress={onPressFunction}>
-      <Text color="textSecondary">{text}</Text>
+      <Link to={path}>
+        <Text color="textSecondary">{text}</Text>
+      </Link>
     </Pressable>
-  );
+  )
 }
 
 export default AppBarTab;
