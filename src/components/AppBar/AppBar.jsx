@@ -1,8 +1,7 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
 
 import AppBarTab from './AppBarTab';
-import {Dimensions} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -28,8 +27,10 @@ const AppBar = () => {
 
   return (
     <View style={styles.container}>
-      <AppBarTab text="Repositories" onPressFunction={onPressFunction} path="/" />
-      <AppBarTab text="Sign in" onPressFunction={onPressFunctionOne} path="/signin" />
+      <ScrollView horizontal >
+        <AppBarTab text="Repositories" onPressFunction={onPressFunction} path="/" />
+        <AppBarTab text="Sign in" onPressFunction={onPressFunctionOne} path="/signin" />
+      </ScrollView>
     </View>
   )
 };

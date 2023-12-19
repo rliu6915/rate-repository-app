@@ -10,11 +10,13 @@ const styles = StyleSheet.create({
 })
 
 const SignIn = () => {
+  const onSubmit = (values) => {
+    console.log(values);
+  };
   return (
     <View style={styles.container}>
-      <Text color="textPrimary">
-        The Sign In View
-      </Text>
+      <Text>Sign in</Text>
+      
     </View>
   )
 }
