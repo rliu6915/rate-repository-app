@@ -12,18 +12,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#24292e',
     // flexbox
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'space-evenly'
   },
 });
 
 const AppBar = () => {
   const onPressFunction = () => {
-    console.log('Repositories pressed');
+    console.log('Repositories pressed')
+  }
+
+  const onPressFunctionOne = () => {
+    console.log('Sign in pressed')
   }
 
   return (
     <View style={styles.container}>
       <AppBarTab text="Repositories" onPressFunction={onPressFunction} />
+      <AppBarTab text="Sign in" onPressFunction={onPressFunctionOne} />
     </View>
   )
 };
