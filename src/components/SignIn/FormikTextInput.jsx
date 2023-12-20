@@ -1,5 +1,6 @@
 import TextInput from "./TextInput"
 import { useField } from "formik"
+import { Dimensions } from "react-native"
 
 import Text from "react-native"
 
@@ -7,6 +8,14 @@ const Styles = {
   errorText: {
     marginTop: 5,
     color: "#d73a4a"
+  },
+  textInput: {
+    borderColor: "#999999",
+    padding: 10,
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 5,
+    width: Dimensions.get("window").width * 0.8
   }
 }
 
@@ -18,6 +27,7 @@ const FormikTextInput = ({ name, ...props }) => {
   return (
     <>
       <TextInput
+        style={Styles.textInput}
         onChangeText={(value) => helpers.setValue(value)}
         onBlur={() => helpers.setTouched(true)}
         value={field.value}
