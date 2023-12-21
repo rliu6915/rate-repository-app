@@ -9,7 +9,7 @@ import SignIn from "./SignIn/SignIn";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexDirection: `column`,
     backgroundColor: `#e1e4e8`,
     alignItems: 'center',
     justifyContent: 'center',
