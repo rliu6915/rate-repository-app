@@ -1,7 +1,7 @@
 import { View, StyleSheet} from 'react-native';
 
-import ProfileHeader from '../RepositoryItem/ProfileHeader'
-import ProfileStats from '../RepositoryItem/ProfileStats'
+import ProfileHeader from './ProfileHeader'
+import ProfileStats from './ProfileStats'
 
 const styles = StyleSheet.create({
   container: {

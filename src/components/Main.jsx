@@ -1,11 +1,11 @@
 
 import { StyleSheet, View} from "react-native";
 
-import RepositoryList from './RepositoryList/RepositoryList'
-import AppBar from './AppBar/AppBar';
+import RepositoryList from './RepositoryList'
+import AppBar from './AppBar';
 
 import { Routes, Route, Navigate } from "react-router-native"
-import SignIn from "./SignIn/SignIn";
+import SignIn from "./SignIn";
 
 const styles = StyleSheet.create({
   container: {
