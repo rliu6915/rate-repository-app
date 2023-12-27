@@ -1,12 +1,14 @@
-import { View, StyleSheet, Dimensions, ScrollView } from 'react-native';
-import Constants from 'expo-constants';
+import { View, StyleSheet, Dimensions, ScrollView } from 'react-native'
 
-import AppBarTab from './AppBarTab';
+import AppBarTab from './AppBarTab'
+
+const statusBarHeight = Dimensions.get('window').height * 0.05
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Constants.statusBarHeight,
-    paddingBottom: Constants.statusBarHeight,
+    paddingTop: statusBarHeight,
+    // paddingBottom : statusBarHeight,
+    height: 30 + (statusBarHeight || 0),
     width: Dimensions.get('window').width,
     backgroundColor: '#24292e',
     // flexbox
