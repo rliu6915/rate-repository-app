@@ -3,13 +3,16 @@ import {
   FlatList,
   StyleSheet,
   SafeAreaView,
-  StatusBar
+  StatusBar,
+  Text
 } from 'react-native';
 
 import RepositoryItem from '../RepositoryItem';
 // import { useState, useEffect } from 'react';
 
-import useRepositories from '../../hooks/useRepositories'
+// import useRepositories from '../../hooks/useRepositories'
+import { useQuery } from '@apollo/client';
+import { GET_REPOSITORIES } from '../../graphql/queries';
 
 const styles = StyleSheet.create({
   separator: {
@@ -87,12 +90,21 @@ const RepositoryList = () => {
   //   fetchRepositories();
   // }, [])
 
-  const { repositories } = useRepositories()
+  // const { repositories } = useRepositories()
 
-    // Get the nodes from the edges array
-    const repositoryNodes = repositories
-    ? repositories.edges.map(edge => edge.node)
-    : []
+  const result = useQuery(GET_REPOSITORIES, {
+    fetchPolicy: 'cache-and-network'
+  })
+
+  // Get the nodes from the edges array
+  const repositories = result.data.repositories
+  const repositoryNodes = repositories
+  ? repositories.edges.map(edge => edge.node)
+  : []
+
+  if (result.loading) {
+    return <View><Text>Loading...</Text></View>
+  }
 
   return (
     <SafeAreaView style={styles.container}>
