@@ -1,7 +1,7 @@
 
 
 
-import { StyleSheet, StatusBar, View} from "react-native"
+import { StyleSheet, View } from "react-native"
 import { Formik } from "formik"
 import SignInForm from "./SignInForm"
 
@@ -10,7 +10,6 @@ import * as yup from "yup"
 const styles = StyleSheet.create({
   container: {
     flexDirection: `column`,
-    marginTop: StatusBar.currentHeight || 0,
     padding: 10,
     width: `100%`,
     backgroundColor: `#ffffff`,

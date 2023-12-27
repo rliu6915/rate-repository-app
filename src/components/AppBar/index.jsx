@@ -1,14 +1,13 @@
-import { View, StyleSheet, Dimensions, ScrollView } from 'react-native'
+import { View, StyleSheet, 
+  Dimensions, ScrollView } 
+from 'react-native'
 
 import AppBarTab from './AppBarTab'
 
-const statusBarHeight = Dimensions.get('window').height * 0.05
-
 const styles = StyleSheet.create({
   container: {
-    paddingTop: statusBarHeight,
-    // paddingBottom : statusBarHeight,
-    height: 30 + (statusBarHeight || 0),
+    paddingTop: 15,
+    paddingBottom : 15,
     width: Dimensions.get('window').width,
     backgroundColor: '#24292e',
     // flexbox
