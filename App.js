@@ -10,7 +10,7 @@ import Constants from 'expo-constants';
 const apolloClient = createApolloClient();
 
 const App = () => {
-  // console.log('Constants.manifest', Constants.manifest)
+  console.log('Constants.manifest.extra', Constants.manifest.extra)
   
   return (
     <>
