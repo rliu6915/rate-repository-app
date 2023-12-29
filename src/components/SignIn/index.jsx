@@ -7,6 +7,8 @@ import SignInForm from "./SignInForm"
 
 import * as yup from "yup"
 
+import useSignIn from "../../hooks/useSignIn"
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: `column`,
@@ -22,8 +24,16 @@ const initialValues = {
   password: ""
 }
 
-const onSubmit = (values) => {
-  console.log("onSubmit", values)
+const onSubmit = async (values) => {
+  const { username, password } = values
+  const [ signIn ] = useSignIn()
+  
+  try {
+    const { data } = await signIn({ username, password })
+    console.log("onSubmit", data)
+  } catch (e) {
+    console.log(e)
+  }
 }
 
 const validationSchema = yup.object().shape({
