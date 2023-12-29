@@ -19,33 +19,35 @@ const styles = StyleSheet.create({
   }
 })
 
-const initialValues = {
-  username: "",
-  password: ""
-}
-
-const onSubmit = async (values) => {
-  const { username, password } = values
-  const [ signIn ] = useSignIn()
-  
-  try {
-    const { data } = await signIn({ username, password })
-    console.log("onSubmit", data)
-  } catch (e) {
-    console.log(e)
-  }
-}
-
-const validationSchema = yup.object().shape({
-  username: yup
-    .string()
-    .required("Username is required"),
-  password: yup
-    .string()
-    .required("Password is required")
-})
-
 const SignIn = () => {
+  const [signIn] = useSignIn()
+
+  const onSubmit = async (values) => {
+    const { username, password } = values
+    // console.log("values", username, password)
+    
+    try {
+      const { data } = await signIn({ username, password })
+      console.log("onSubmit", data)
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  const initialValues = {
+    username: "",
+    password: ""
+  }
+  
+  const validationSchema = yup.object().shape({
+    username: yup
+      .string()
+      .required("Username is required"),
+    password: yup
+      .string()
+      .required("Password is required")
+  })
+
   return (
     <View style={styles.container}>
       <Formik 
