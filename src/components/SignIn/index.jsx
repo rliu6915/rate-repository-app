@@ -31,7 +31,7 @@ const SignIn = () => {
     // console.log("values", username, password)
     
     try {
-      const { data } = await signIn({ username, password })
+      const data = await signIn({ username, password })
       console.log("onSubmit", data)
       navigate("/")
     } catch (e) {
