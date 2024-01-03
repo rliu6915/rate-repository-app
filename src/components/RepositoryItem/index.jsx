@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
 })
 
 const RepositoryItem = ({props}) => (
-  <View style={styles.container}>
+  <View testID='repositoryItem' style={styles.container}>
     <ProfileHeader 
       source={props.ownerAvatarUrl} 
       fullName={props.fullName}
