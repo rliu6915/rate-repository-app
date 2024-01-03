@@ -11,6 +11,7 @@ const RepositoryList = () => {
   const {loading, error, data } = useQuery(GET_REPOSITORIES, {
     fetchPolicy: 'cache-and-network'
   })
+  const repositories = data ? data.repositories : null
 
   if (loading) {
     return <View><Text>Loading...</Text></View>
@@ -21,7 +22,7 @@ const RepositoryList = () => {
   // console.log('data', data)
 
   return (
-    <RepositoryListContainer data={data} />
+    <RepositoryListContainer repositories={repositories} />
   )
 }
 

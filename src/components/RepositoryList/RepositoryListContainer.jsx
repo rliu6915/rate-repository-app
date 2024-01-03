@@ -21,12 +21,12 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const RepositoryListContainer = ({ data }) => {
+const RepositoryListContainer = ({ repositories }) => {
   // const { repositories } = useRepositories()
 
   // Get the nodes from the edges array
-  const repositoryNodes = data
-  ? data.repositories.edges.map(edge => edge.node)
+  const repositoryNodes = repositories
+  ? repositories.edges.map(edge => edge.node)
   : []
 
   return (

@@ -1,3 +1,7 @@
+import { render, screen } from '@testing-library/react-native'
+
+import RepositoryListContainer from './RepositoryListContainer'
+
 describe('RepositoryList', () => {
   describe('RepositoryListContainer', () => {
     it('renders repository information correctly', () => {
@@ -45,6 +49,16 @@ describe('RepositoryList', () => {
       };
 
       // Add your test code here
+      render(<RepositoryListContainer repositories={repositories} />);
+
+      screen.debug();
+
+      const repositoryItems = screen.getAllByTestId('repositoryItem');
+      const [firstRepositoryItem, secondRepositoryItem] = repositoryItems;
+
+      expect(firstRepositoryItem).toHaveTextContent('jaredpalmer/formik');
+      expect(secondRepositoryItem).toHaveTextContent('async-library/react-async')
+
     });
   });
 });

@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 
 const ProfileInfo = ({fullName, description, language}) => {
   return (
-    <View styles={styles.container}>
+    <View styles={styles.container} testID="information">
         <Text color="textPrimary" fontWeight="bold">{fullName}</Text>
         <Text color="textSecondary">{description}</Text>
         <Text color="primary" >{language}</Text>
