@@ -1,7 +1,10 @@
 
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Pressable } from 'react-native'
 
 import Text from '../Text'
+
+import * as Linking from 'expo-linking';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -13,10 +16,16 @@ const styles = StyleSheet.create({
   }
 })
 
-const Button = () => {
+const Button = ({ url }) => {
+  const onPress = () => {
+    Linking.openURL(url)
+  }
+  
   return (
     <View style={styles.container}>
-      <Text color="white">Open in Github</Text>
+      <Pressable onPress={onPress}>
+        <Text color="white">Open in Github</Text>
+      </Pressable>
     </View>
   )
 }
