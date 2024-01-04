@@ -3,6 +3,8 @@ import { View, StyleSheet} from 'react-native';
 import ProfileHeader from './ProfileHeader'
 import ProfileStats from './ProfileStats'
 
+import Button from './Button'
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff'
@@ -23,6 +25,7 @@ const RepositoryItem = ({props}) => (
       ratingAverage={props.ratingAverage}
       reviewCount={props.reviewCount}
     />
+    <Button />
   </View>
 );
 
