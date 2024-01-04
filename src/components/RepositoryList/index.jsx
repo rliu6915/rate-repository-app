@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
 
 import { useQuery } from '@apollo/client';
-import { GET_REPOSITORIES } from '../../graphql/queries';
+import { GET_REPOSITORIES, GET_REPOSITORY } from '../../graphql/queries';
 
 import RepositoryListContainer from './RepositoryListContainer'
 
@@ -13,13 +13,22 @@ const RepositoryList = () => {
   })
   const repositories = data ? data.repositories : null
 
+
   if (loading) {
     return <View><Text>Loading...</Text></View>
   }
 
   if (error) return `Error! ${error.message}`;
 
-  // console.log('data', data)
+  // const {loading1, error1, data1 } = useQuery(GET_REPOSITORY, 
+  //   {variables: { id:  }
+  // })
+
+  // if (loading1) {
+  //   return <View><Text>Loading...</Text></View>
+  // }
+
+  // if (error1) return `Error! ${error.message}`;
 
   return (
     <RepositoryListContainer repositories={repositories} />
