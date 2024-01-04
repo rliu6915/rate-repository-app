@@ -10,6 +10,8 @@ import { ME } from '../../graphql/queries'
 import { useApolloClient } from '@apollo/client'
 import useAuthStorage from '../../hooks/useAuthStorage'
 
+import { useNavigate } from 'react-router-native';
+
 const styles = StyleSheet.create({
   container: {
     paddingTop: 15,
@@ -25,14 +27,16 @@ const styles = StyleSheet.create({
 const AppBar = () => {
   const apolloClient = useApolloClient()
   const authStorage = useAuthStorage()
+  const navigate = useNavigate()
 
   const onPressFunction = () => {
     console.log('Repositories pressed')
-
+    navigate('/')
   }
 
   const onPressFunctionOne = () => {
     console.log('Sign in pressed')
+    navigate('/signin')
   }
 
   const onPressFunctionTwo = async () => {
