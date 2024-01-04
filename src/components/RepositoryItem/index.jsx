@@ -25,7 +25,7 @@ const RepositoryItem = ({props}) => (
       ratingAverage={props.ratingAverage}
       reviewCount={props.reviewCount}
     />
-    <Button />
+    {props.url && <Button url={props.url}/> }
   </View>
 );
 

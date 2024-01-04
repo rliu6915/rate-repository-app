@@ -6,7 +6,7 @@ import {
   StatusBar,
 } from 'react-native';
 
-import RepositoryItem from '../RepositoryItem';
+import PressRepoItem from './PressRepoItem';
 // import { useState, useEffect } from 'react';
 
 const styles = StyleSheet.create({
@@ -33,7 +33,7 @@ const RepositoryListContainer = ({ repositories }) => {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={repositoryNodes}
-        renderItem={({item}) => <RepositoryItem props={item} />}
+        renderItem={({item}) => <PressRepoItem item={item} />}
         keyExtractor={item => item.id}
         ItemSeparatorComponent={ItemSeparator}
       />

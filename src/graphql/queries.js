@@ -24,10 +24,10 @@ export const ME = gql`
 `
 
 export const GET_REPOSITORY = gql`
+  ${REPOSITORIES_DETAILS}
   query getRepository($id: ID!) {
     repository(id: $id) {
-      id
-      fullName
+      ...RepositoryDetails
       url  
     }
   }

@@ -7,6 +7,8 @@ import AppBar from './AppBar';
 import { Routes, Route, Navigate } from "react-router-native"
 import SignIn from "./SignIn";
 
+import Repository from "./Repository";
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: `column`,
@@ -23,6 +25,7 @@ const Main = () => {
       <View style={styles.content}>
         <Routes>
           <Route path="/" element={<RepositoryList />}/>
+          <Route path="/repository/:userId" element={<Repository />} />
           <Route path="/signin" element={<SignIn />}/>
           <Route path="*" element={<Navigate to="/" replace />}/>
         </Routes>

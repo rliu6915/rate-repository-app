@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
 
 import { useQuery } from '@apollo/client';
-import { GET_REPOSITORIES, GET_REPOSITORY } from '../../graphql/queries';
+import { GET_REPOSITORIES } from '../../graphql/queries';
 
 import RepositoryListContainer from './RepositoryListContainer'
 
