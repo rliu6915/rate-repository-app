@@ -19,7 +19,7 @@ const ReviewFormSpec = ({ onSubmit }) => {
       <FormikTextInput name="repoOwnerName" placeholder="Repository owner name" />
       <FormikTextInput name="repoName" placeholder="Repository name" />
       <FormikTextInput name="reviewRating" placeholder="Rating between 0 and 100" />
-      <FormikTextInput name="reviewText" placeholder="Review" />
+      <FormikTextInput name="reviewText" placeholder="Review" multiline/>
       <Pressable onPress={onSubmit} style={styles.pressable}>
         <Text color="textPrimary">Create a review</Text>
       </Pressable>
