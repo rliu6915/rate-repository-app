@@ -46,6 +46,7 @@ const AppBar = () => {
     console.log('Sign out pressed')
     await authStorage.removeAccessToken()
     apolloClient.resetStore()
+    navigate('/')
   }
 
   const onPressFunctionThree = () => {
