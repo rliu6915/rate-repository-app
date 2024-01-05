@@ -6,7 +6,9 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     backgroundColor: "#ffffff",
+    marginTop: 10,
     padding: 10,
+    justifyContent: "sapce-around",
   }
 })
 
