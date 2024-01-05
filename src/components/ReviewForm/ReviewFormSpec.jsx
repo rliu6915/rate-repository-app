@@ -21,7 +21,7 @@ const ReviewFormSpec = ({ onSubmit }) => {
       <FormikTextInput name="reviewRating" placeholder="Rating between 0 and 100" />
       <FormikTextInput name="reviewText" placeholder="Review" />
       <Pressable onPress={onSubmit} style={styles.pressable}>
-        <Text color="textPrimary">Sign in</Text>
+        <Text color="textPrimary">Create a review</Text>
       </Pressable>
     </View>
   )

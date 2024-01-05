@@ -1,8 +1,8 @@
 import ReviewFormContainer from "./ReviewFormContainer"
 
 const ReviewForm = () => {
-  const onSubmit = () => {
-    console.log("Submitting review")
+  const onSubmit = (values) => {
+    console.log("Submitting review", values)
   }
 
   return (
