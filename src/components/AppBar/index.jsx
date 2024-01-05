@@ -22,6 +22,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly'
   },
+  subContainer: {
+    flexDirection: 'row'
+  }
 });
 
 const AppBar = () => {
@@ -45,6 +48,11 @@ const AppBar = () => {
     apolloClient.resetStore()
   }
 
+  const onPressFunctionThree = () => {
+    console.log('Create a review pressed')
+    navigate('/reviewForm')
+  }
+
   const { loading, error, data } = useQuery(ME, {
     fetchPolicy: 'cache-and-network'
   })
@@ -62,12 +70,13 @@ const AppBar = () => {
       <ScrollView horizontal >
         <AppBarTab text="Repositories" onPressFunction={onPressFunction} path="/" />
         {data.me ? (
-          <AppBarTab text="Sign out" onPressFunction={onPressFunctionTwo} />
+          <View style={styles.subContainer}>
+            <AppBarTab text="Create a review" onPressFunction={onPressFunctionThree} path="/reviewForm" />
+            <AppBarTab text="Sign out" onPressFunction={onPressFunctionTwo} />
+          </View>
         ) : (
           <AppBarTab text="Sign in" onPressFunction={onPressFunctionOne} path="/signin" />
         )}
-        {/* <AppBarTab text="Sign in" onPressFunction={onPressFunctionOne} path="/signin" />
-        <AppBarTab text="Sign out" onPressFunction={onPressFunctionTwo} /> */}
       </ScrollView>
     </View>
   )
