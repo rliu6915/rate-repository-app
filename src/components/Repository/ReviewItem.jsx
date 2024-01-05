@@ -1,12 +1,20 @@
-import { View, Text } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import RatingImage from './RatingImage'
+import ReviewContent from './ReviewContent'
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    backgroundColor: "#ffffff",
+    padding: 10,
+  }
+})
 
 const ReviewItem = ({ review }) => {
   return (
-    <View>
-      <Text>{review.user.username}</Text>
-      <Text>{review.rating}</Text>
-      <Text>{review.createdAt}</Text>
-      <Text>{review.text}</Text>
+    <View style={styles.container}>
+      <RatingImage rating={review.rating} />
+      <ReviewContent user={review.user} createdAt={review.createdAt} text={review.text} />
     </View>
   )
 }
