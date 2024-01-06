@@ -12,4 +12,17 @@ export const REPOSITORIES_DETAILS = gql`
     reviewCount
     ownerAvatarUrl
   }
-`;
+`
+
+export const REVIEW_DETAILS = gql`
+  fragment ReviewDetails on Review {
+    id
+    text
+    rating
+    createdAt
+    user {
+      id
+      username
+    }
+  }
+`

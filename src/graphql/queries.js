@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client"
 
-import { REPOSITORIES_DETAILS } from "./fragments"
+import { REPOSITORIES_DETAILS, REVIEW_DETAILS } from "./fragments"
 
 export const GET_REPOSITORIES = gql`
   ${REPOSITORIES_DETAILS}
@@ -25,6 +25,7 @@ export const ME = gql`
 
 export const GET_REPOSITORY = gql`
   ${REPOSITORIES_DETAILS}
+  ${REVIEW_DETAILS}
   query getRepository($id: ID!) {
     repository(id: $id) {
       ...RepositoryDetails
@@ -32,14 +33,7 @@ export const GET_REPOSITORY = gql`
       reviews {
         edges {
           node {
-            id
-            text
-            rating
-            createdAt
-            user {
-              id
-              username
-            }
+            ...ReviewDetails
           }
         }
       }
