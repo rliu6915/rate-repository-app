@@ -56,6 +56,7 @@ const AppBar = () => {
 
   const onPressFunctionFour = () => {
     console.log("Sign up pressed")
+    navigate("/signup")
   }
 
   const { loading, error, data } = useQuery(ME, {
@@ -73,15 +74,15 @@ const AppBar = () => {
   return (
     <View style={styles.container}>
       <ScrollView horizontal >
-        <AppBarTab text="Repositories" onPressFunction={onPressFunction} path="/" />
+        <AppBarTab text="Repositories" onPressFunction={onPressFunction} />
         {data.me ? (
           <View style={styles.subContainer}>
-            <AppBarTab text="Create a review" onPressFunction={onPressFunctionThree} path="/reviewForm" />
+            <AppBarTab text="Create a review" onPressFunction={onPressFunctionThree} />
             <AppBarTab text="Sign out" onPressFunction={onPressFunctionTwo} />
           </View>
         ) : (
           <View style={styles.subContainer}>
-            <AppBarTab text="Sign in" onPressFunction={onPressFunctionOne} path="/signin" />
+            <AppBarTab text="Sign in" onPressFunction={onPressFunctionOne} />
             <AppBarTab text="Sign up" onPressFunction={onPressFunctionFour} />
           </View>
         )}
