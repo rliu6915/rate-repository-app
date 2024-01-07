@@ -17,8 +17,8 @@ const SignUpForm = ({ onSubmit }) => {
   return (
     <View>
       <FormikTextInput name="username" placeholder="Username" />
-      <FormikTextInput name="password" placeholder="Password" secureTextEntry/>
-      <FormikTextInput name="confirmation" placeholder="Password confirmation" />
+      <FormikTextInput name="password" placeholder="Password" secureTextEntry />
+      <FormikTextInput name="confirmation" placeholder="Password confirmation" secureTextEntry />
       <Pressable onPress={onSubmit} style={styles.pressable}>
         <Text color="">
           Sign up
