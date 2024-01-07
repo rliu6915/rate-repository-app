@@ -54,6 +54,10 @@ const AppBar = () => {
     navigate('/reviewForm')
   }
 
+  const onPressFunctionFour = () => {
+    console.log("Sign up pressed")
+  }
+
   const { loading, error, data } = useQuery(ME, {
     fetchPolicy: 'cache-and-network'
   })
@@ -76,7 +80,10 @@ const AppBar = () => {
             <AppBarTab text="Sign out" onPressFunction={onPressFunctionTwo} />
           </View>
         ) : (
-          <AppBarTab text="Sign in" onPressFunction={onPressFunctionOne} path="/signin" />
+          <View style={styles.subContainer}>
+            <AppBarTab text="Sign in" onPressFunction={onPressFunctionOne} path="/signin" />
+            <AppBarTab text="Sign up" onPressFunction={onPressFunctionFour} />
+          </View>
         )}
       </ScrollView>
     </View>
