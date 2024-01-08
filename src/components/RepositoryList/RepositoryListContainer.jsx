@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import PressRepoItem from './PressRepoItem';
+import OrderSelector from '../OrderSelector';
 // import { useState, useEffect } from 'react';
 
 const styles = StyleSheet.create({
@@ -16,6 +17,9 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     marginTop: StatusBar.currentHeight || 0
+  },
+  listHeader: {
+    zIndex: 1
   }
 });
 
@@ -32,6 +36,8 @@ const RepositoryListContainer = ({ repositories }) => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
+        ListHeaderComponent={() => <OrderSelector />}
+        ListHeaderComponentStyle={styles.listHeader}
         data={repositoryNodes}
         renderItem={({item}) => <PressRepoItem item={item} />}
         keyExtractor={item => item.id}
