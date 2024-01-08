@@ -1,5 +1,5 @@
 import { Button, Menu, Divider, PaperProvider } from 'react-native-paper';
-import { View, StyleSheet} from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { useState } from 'react';
 
 const styles = StyleSheet.create({
@@ -11,12 +11,13 @@ const styles = StyleSheet.create({
 
 const OrderSelector = ({order, setOrder, setOrderBy, setOrderDirection}) => {
   const [visible, setVisible] = useState(false)
-  // const [order, setOrder] = useState('Latest repositories')
-  // const [orderBy, setOrderBy] = useState("CREATE_AT")
-  // const [orderDirection, setOrderDirection] = useState("DESC")
 
-  const openMenu = () => setVisible(true)
-  const closeMenu = () => setVisible(false)
+  const openMenu = () => {
+    setVisible(true)
+  }
+  const closeMenu = () => {
+    setVisible(false)
+  }
 
   const onPress = () => {
     setOrder('Latest repositories')
@@ -44,7 +45,17 @@ const OrderSelector = ({order, setOrder, setOrderBy, setOrderDirection}) => {
         <Menu
           visible={visible}
           onDismiss={closeMenu}
-          anchor={<Button onPress={openMenu} icon="camera">{order}</Button>}
+          anchor={
+          <Button 
+            onPress={openMenu} 
+            icon="chevron-down" 
+            textColor='black'
+            contentStyle={{flexDirection: 'row-reverse'}}
+          >
+            {order}
+          </Button>}
+          anchorPosition='bottom'
+          theme={{ colors: { elevation: { level2: 'white' } } }}
         >
           <Menu.Item title="Select an item..." disabled />
           <Divider />
