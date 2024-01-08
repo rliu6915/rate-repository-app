@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const RepositoryListContainer = ({ repositories }) => {
+const RepositoryListContainer = ({ repositories, order, setOrder, setOrderBy, setOrderDirection }) => {
   // const { repositories } = useRepositories()
 
   // Get the nodes from the edges array
@@ -36,7 +36,12 @@ const RepositoryListContainer = ({ repositories }) => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        ListHeaderComponent={() => <OrderSelector />}
+        ListHeaderComponent={() => <OrderSelector 
+          order={order} 
+          setOrder={setOrder} 
+          setOrderBy={setOrderBy} 
+          setOrderDirection={setOrderDirection}
+        />}
         ListHeaderComponentStyle={styles.listHeader}
         data={repositoryNodes}
         renderItem={({item}) => <PressRepoItem item={item} />}

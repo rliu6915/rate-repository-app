@@ -1,37 +1,35 @@
 import { Text, View } from 'react-native';
-
-import { useQuery } from '@apollo/client';
-import { GET_REPOSITORIES } from '../../graphql/queries';
-
 import RepositoryListContainer from './RepositoryListContainer'
+import { useState } from 'react'
+import { useQuery } from '@apollo/client'
+import { GET_REPOSITORIES } from '../../graphql/queries'
 
 const RepositoryList = () => {
-  // const { repositories } = useRepositories()
+  const [orderBy, setOrderBy] = useState("CREATED_AT")
+  const [orderDirection, setOrderDirection] = useState("DESC")
+  const [order, setOrder] = useState('Latest repositories')
 
   const {loading, error, data } = useQuery(GET_REPOSITORIES, {
-    fetchPolicy: 'cache-and-network'
+    fetchPolicy: 'cache-and-network',
+    variables: {
+      orderDirection: orderDirection,
+      orderBy: orderBy,
+    }
   })
   const repositories = data ? data.repositories : null
-
-
+  // console.log('repositories.edges', repositories.edges)
   if (loading) {
     return <View><Text>Loading...</Text></View>
   }
-
   if (error) return `Error! ${error.message}`;
 
-  // const {loading1, error1, data1 } = useQuery(GET_REPOSITORY, 
-  //   {variables: { id:  }
-  // })
-
-  // if (loading1) {
-  //   return <View><Text>Loading...</Text></View>
-  // }
-
-  // if (error1) return `Error! ${error.message}`;
-
   return (
-    <RepositoryListContainer repositories={repositories} />
+    <RepositoryListContainer 
+      repositories={repositories} 
+      order={order} 
+      setOrder={setOrder} 
+      setOrderBy={setOrderBy} 
+      setOrderDirection={setOrderDirection}/>
   )
 }
 

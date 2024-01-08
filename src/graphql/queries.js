@@ -4,8 +4,8 @@ import { REPOSITORIES_DETAILS, REVIEW_DETAILS } from "./fragments"
 
 export const GET_REPOSITORIES = gql`
   ${REPOSITORIES_DETAILS}
-  query {
-    repositories {
+  query($orderDirection: OrderDirection, $orderBy: AllRepositoriesOrderBy)  {
+    repositories(orderDirection: $orderDirection, orderBy: $orderBy) {
       edges {
         node {
           ...RepositoryDetails

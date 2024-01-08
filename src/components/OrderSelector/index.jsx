@@ -9,20 +9,33 @@ const styles = StyleSheet.create({
   }
 })
 
-const OrderSelector = () => {
+const OrderSelector = ({order, setOrder, setOrderBy, setOrderDirection}) => {
   const [visible, setVisible] = useState(false)
-  const [order, setOrder] = useState('Latest repositories')
+  // const [order, setOrder] = useState('Latest repositories')
+  // const [orderBy, setOrderBy] = useState("CREATE_AT")
+  // const [orderDirection, setOrderDirection] = useState("DESC")
+
   const openMenu = () => setVisible(true)
   const closeMenu = () => setVisible(false)
 
   const onPress = () => {
     setOrder('Latest repositories')
+    setOrderBy("CREATED_AT")
+    setOrderDirection("DESC")
+    closeMenu()
   }
   const onPressOne = () => {
     setOrder('Highest rated repositories')
+    // console.log('Highest rated repositories', order)
+    setOrderBy("RATING_AVERAGE")
+    setOrderDirection("DESC")
+    closeMenu()
   }
   const onPressTwo = () => {
     setOrder('Lowest rated repositories')
+    setOrderBy("RATING_AVERAGE")
+    setOrderDirection("ASC")
+    closeMenu()
   }
   
   return (
