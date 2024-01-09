@@ -7,9 +7,7 @@ import {
 } from 'react-native';
 
 import PressRepoItem from './PressRepoItem';
-import OrderSelector from "../OrderSelector"
-import SearchBar from "../SearchBar"
-// import RepositoryListHeader from "./RepositoryListHeader"
+import RepositoryListHeader from "./RepositoryListHeader"
 import React from 'react';
 
 const styles = StyleSheet.create({
@@ -35,28 +33,15 @@ const ItemSeparator = () => <View style={styles.separator} />;
 //   ? repositories.edges.map(edge => edge.node)
 //   : []
 
-//   const listHeaderComponent = () => {
-//     // return <RepositoryListHeader 
-//     //   order={order}
-//     //   setOrder={setOrder}
-//     //   setOrderBy={setOrderBy}
-//     //   setOrderDirection={setOrderDirection}
-//     // />
-//     return (
-//       <View>
-//         <SearchBar
-//           searchQuery={searchQuery}
-//           setSearchQuery={setSearchQuery}
-//         />
-//         <OrderSelector 
-//           order={order} 
-//           setOrder={setOrder} 
-//           setOrderBy={setOrderBy} 
-//           setOrderDirection={setOrderDirection}
-//         />
-//       </View>
-//     )
-//   }
+//     const listHeaderComponent = () =>
+//       <RepositoryListHeader 
+//         order={order} 
+//         setOrder={setOrder} 
+//         setOrderBy={setOrderBy} 
+//         setOrderDirection={setOrderDirection} 
+//         searchQuery={searchQuery} 
+//         setSearchQuery={setSearchQuery}
+//       />
 
 //   return (
 //     <SafeAreaView style={styles.container}>
@@ -79,18 +64,14 @@ class RepositoryListContainer extends React.Component {
     const { order, setOrder, setOrderBy, setOrderDirection, setSearchQuery, searchQuery } = this.props
 
     return (
-      <View>
-        <SearchBar
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-        />
-        <OrderSelector 
-          order={order} 
-          setOrder={setOrder} 
-          setOrderBy={setOrderBy} 
-          setOrderDirection={setOrderDirection}
-        />
-      </View>
+      <RepositoryListHeader
+        order={order}
+        setOrder={setOrder}
+        setOrderBy={setOrderBy}
+        setOrderDirection={setOrderDirection}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
     )
   }
 

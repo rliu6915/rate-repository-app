@@ -30,8 +30,8 @@ const RepositoryList = () => {
   return (
     <RepositoryListContainer 
       repositories={repositories} 
-      order={order} 
-      setOrder={setOrder} 
+      order={order}
+      setOrder={setOrder}
       setOrderBy={setOrderBy} 
       setOrderDirection={setOrderDirection}
       setSearchQuery={setSearchQuery}

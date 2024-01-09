@@ -1,6 +1,6 @@
 import { View, StyleSheet } from 'react-native'
 import { Searchbar } from 'react-native-paper';
-// import { useState } from 'react';
+import React from 'react';
 import { useDebounce } from 'use-debounce';
 
 const styles = StyleSheet.create({
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 
 const SearchBar = ({ searchQuery, setSearchQuery }) => {
   // const [searchQuery, setSearchQuery] = useState('');
-  const [value] = useDebounce(searchQuery, 1000);
+  const [value] = useDebounce(searchQuery, 500);
 
   return (
     <View>
@@ -35,4 +35,4 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
   )
 }
 
-export default SearchBar
+export default React.memo(SearchBar)
