@@ -7,8 +7,9 @@ import {
 } from 'react-native';
 
 import PressRepoItem from './PressRepoItem';
-import OrderSelector from '../OrderSelector';
-// import { useState, useEffect } from 'react';
+import OrderSelector from "../OrderSelector"
+import SearchBar from "../SearchBar"
+// import RepositoryListHeader from "./RepositoryListHeader"
 
 const styles = StyleSheet.create({
   separator: {
@@ -33,15 +34,30 @@ const RepositoryListContainer = ({ repositories, order, setOrder, setOrderBy, se
   ? repositories.edges.map(edge => edge.node)
   : []
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        ListHeaderComponent={() => <OrderSelector 
+  const listHeaderComponent = () => {
+    // return <RepositoryListHeader 
+    //   order={order}
+    //   setOrder={setOrder}
+    //   setOrderBy={setOrderBy}
+    //   setOrderDirection={setOrderDirection}
+    // />
+    return (
+      <View>
+        <SearchBar />
+        <OrderSelector 
           order={order} 
           setOrder={setOrder} 
           setOrderBy={setOrderBy} 
           setOrderDirection={setOrderDirection}
-        />}
+        />
+      </View>
+    )
+  }
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        ListHeaderComponent={listHeaderComponent}
         ListHeaderComponentStyle={styles.listHeader}
         data={repositoryNodes}
         renderItem={({item}) => <PressRepoItem item={item} />}

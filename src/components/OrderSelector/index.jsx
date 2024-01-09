@@ -6,6 +6,24 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'center',
+  }, 
+  buttonStyle: {
+    flexDirection: "row-reverse",
+    fontSize: 14,
+    fontFamily: "Arial",
+    color: "black",
+  },
+  menuStyle: {
+    backgroundColor: 'white',
+  },
+  itemStyle: {
+    fontSize: 14,
+    fontFamily: "Arial",
+    color: "black",
+  },
+  itemStyleDisabled: {
+    fontSize: 14,
+    fontFamily: "Arial",
   }
 })
 
@@ -50,18 +68,19 @@ const OrderSelector = ({order, setOrder, setOrderBy, setOrderDirection}) => {
             onPress={openMenu} 
             icon="chevron-down" 
             textColor='black'
-            contentStyle={{flexDirection: 'row-reverse'}}
+            contentStyle={styles.buttonStyle}
           >
             {order}
           </Button>}
           anchorPosition='bottom'
-          theme={{ colors: { elevation: { level2: 'white' } } }}
+          // theme={{ colors: { elevation: { level2: 'white' } } }}
+          contentStyle={styles.menuStyle}
         >
-          <Menu.Item title="Select an item..." disabled />
+          <Menu.Item title="Select an item..." titleStyle={styles.itemStyleDisabled} disabled/>
           <Divider />
-          <Menu.Item onPress={onPress} title="Latest repositories" />
-          <Menu.Item onPress={onPressOne} title="Highest rated repositories" />
-          <Menu.Item onPress={onPressTwo} title="Lowest rated repositories" />
+          <Menu.Item onPress={onPress} title="Latest repositories" titleStyle={styles.itemStyle} />
+          <Menu.Item onPress={onPressOne} title="Highest rated repositories" titleStyle={styles.itemStyle} />
+          <Menu.Item onPress={onPressTwo} title="Lowest rated repositories" titleStyle={styles.itemStyle} />
         </Menu>
       </View>
     </PaperProvider>
