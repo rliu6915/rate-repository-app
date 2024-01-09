@@ -96,4 +96,4 @@ class RepositoryListContainer extends React.Component {
   }
 }
 
-export default RepositoryListContainer;
+export default RepositoryListContainer

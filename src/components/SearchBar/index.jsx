@@ -1,7 +1,6 @@
 import { View, StyleSheet } from 'react-native'
 import { Searchbar } from 'react-native-paper';
 import React from 'react';
-import { useDebounce } from 'use-debounce';
 
 const styles = StyleSheet.create({
   container: {
@@ -20,14 +19,15 @@ const styles = StyleSheet.create({
 
 const SearchBar = ({ searchQuery, setSearchQuery }) => {
   // const [searchQuery, setSearchQuery] = useState('');
-  const [value] = useDebounce(searchQuery, 500);
+  // const [value] = useDebounce(searchQuery, 500);
+  // console.log("value", value)
 
   return (
     <View>
       <Searchbar 
         placeholder='Search'
         onChangeText={setSearchQuery}
-        value={value}
+        value={searchQuery}
         style={styles.container}
         inputStyle={styles.input}
       />
@@ -35,4 +35,4 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
   )
 }
 
-export default React.memo(SearchBar)
+export default SearchBar

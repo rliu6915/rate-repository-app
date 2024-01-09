@@ -1,8 +1,9 @@
-import { Text, View } from 'react-native';
+
 import RepositoryListContainer from './RepositoryListContainer'
 import { useState } from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_REPOSITORIES } from '../../graphql/queries'
+import { useDebounce } from 'use-debounce';
 
 const RepositoryList = () => {
   const [orderBy, setOrderBy] = useState("CREATED_AT")
@@ -10,21 +11,23 @@ const RepositoryList = () => {
   const [order, setOrder] = useState('Latest repositories')
   const [searchQuery, setSearchQuery] = useState('');
 
-  const {loading, error, data } = useQuery(GET_REPOSITORIES, {
+  const [debouncedSearchQuery] = useDebounce(searchQuery, 500);
+
+  const {error, data } = useQuery(GET_REPOSITORIES, {
     fetchPolicy: 'cache-and-network',
     variables: {
       orderDirection: orderDirection,
       orderBy: orderBy,
-      searchKeyword: searchQuery
+      searchKeyword: debouncedSearchQuery
     }
   })
 
   const repositories = data ? data.repositories : null
   // console.log('repositories.edges', repositories.edges)
 
-  if (loading) {
-    return <View><Text>Loading...</Text></View>
-  }
+  // if (loading) {
+  //   return <View><Text>Loading...</Text></View>
+  // }
   if (error) return `Error! ${error.message}`;
 
   return (
