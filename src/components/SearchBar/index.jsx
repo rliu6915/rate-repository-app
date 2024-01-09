@@ -1,6 +1,7 @@
 import { View, StyleSheet } from 'react-native'
 import { Searchbar } from 'react-native-paper';
-import { useState } from 'react';
+// import { useState } from 'react';
+import { useDebounce } from 'use-debounce';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,15 +18,16 @@ const styles = StyleSheet.create({
   }
 })
 
-const SearchBar = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+const SearchBar = ({ searchQuery, setSearchQuery }) => {
+  // const [searchQuery, setSearchQuery] = useState('');
+  const [value] = useDebounce(searchQuery, 1000);
 
   return (
     <View>
       <Searchbar 
         placeholder='Search'
         onChangeText={setSearchQuery}
-        value={searchQuery}
+        value={value}
         style={styles.container}
         inputStyle={styles.input}
       />

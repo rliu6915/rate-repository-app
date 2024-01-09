@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const RepositoryListContainer = ({ repositories, order, setOrder, setOrderBy, setOrderDirection }) => {
+const RepositoryListContainer = ({ repositories, order, setOrder, setOrderBy, setOrderDirection, setSearchQuery, searchQuery }) => {
   // const { repositories } = useRepositories()
 
   // Get the nodes from the edges array
@@ -43,7 +43,10 @@ const RepositoryListContainer = ({ repositories, order, setOrder, setOrderBy, se
     // />
     return (
       <View>
-        <SearchBar />
+        <SearchBar
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+        />
         <OrderSelector 
           order={order} 
           setOrder={setOrder} 
