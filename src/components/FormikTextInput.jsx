@@ -1,7 +1,6 @@
 import TextInput from "./TextInput"
 import { useField } from "formik"
 import { Dimensions } from "react-native"
-
 import { Text, StyleSheet } from "react-native"
 
 const Styles = StyleSheet.create({

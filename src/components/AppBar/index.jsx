@@ -3,13 +3,12 @@ import { View, StyleSheet,
 from 'react-native'
 
 import AppBarTab from './AppBarTab'
-import { useQuery } from '@apollo/client';
-
-import { ME } from '../../graphql/queries'
+// import { useQuery } from '@apollo/client';
+// import { GET_CURRENT_USER } from '../../graphql/queries'
+import useAuthUser from '../../hooks/useAuthUser'
 
 import { useApolloClient } from '@apollo/client'
 import useAuthStorage from '../../hooks/useAuthStorage'
-
 import { useNavigate } from 'react-router-native';
 
 const styles = StyleSheet.create({
@@ -64,11 +63,12 @@ const AppBar = () => {
     navigate("/myRevies")
   }
 
-  const { loading, error, data } = useQuery(ME, {
-    fetchPolicy: 'cache-and-network'
-  })
+  // const { loading, error, data } = useQuery(GET_CURRENT_USER, {
+  //   fetchPolicy: 'cache-and-network'
+  // })
+  const {loading, error, data } = useAuthUser(false)
 
-  console.log("ME", data)
+  console.log("GET_CURRENT_USER", data)
 
   if (loading) {
     return <View><Text>Loading...</Text></View>

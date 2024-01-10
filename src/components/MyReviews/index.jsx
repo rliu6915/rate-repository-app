@@ -1,9 +1,7 @@
-import { useParams } from 'react-router-native'
 
-import { useQuery } from '@apollo/client'
-import { GET_REPOSITORY } from '../../graphql/queries'
-import { FlatList, Text, SafeAreaView, View, StyleSheet, StatusBar } from 'react-native'
+import { FlatList, SafeAreaView, View, StyleSheet, StatusBar } from 'react-native'
 import ReviewItem from '../Repository/ReviewItem'
+import useAuthUser from '../../hooks/useAuthUser'
 
 const styles = StyleSheet.create({
   separator: {
@@ -18,20 +16,13 @@ const styles = StyleSheet.create({
 const ItemSeparator = () => <View style={styles.separator} />;
 
 const MyReviews = () => {
-  // let { userId } = useParams()
+  const { data } = useAuthUser(true)
+  // console.log('data', data)
 
-  // const { loading, error, data } = useQuery(GET_REPOSITORY, {
-  //   variables: { id: userId },
-  //   fetchPolicy: 'cache-and-network',
-  // })
+  const reviewNodes = data
+  ? data.me.reviews.edges.map(edge => edge.node)
+  : []
 
-  // const repository = data ? data.repository : null
-  // if (loading) return <Text>Loading...</Text>
-  // if (error) return <Text>Error : {error}</Text>
-
-  // const reviewNodes = repository.reviews
-  // ? repository.reviews.edges.map(edge => edge.node)
-  // : []
 
   return (
     <SafeAreaView >
