@@ -1,6 +1,6 @@
 
 import { FlatList, SafeAreaView, View, StyleSheet, StatusBar } from 'react-native'
-import ReviewItem from '../Repository/ReviewItem'
+import ReviewItem from '../ReviewItem'
 import useAuthUser from '../../hooks/useAuthUser'
 
 const styles = StyleSheet.create({

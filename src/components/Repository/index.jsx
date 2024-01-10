@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client'
 import { GET_REPOSITORY } from '../../graphql/queries'
 import { FlatList, Text, SafeAreaView, View, StyleSheet, StatusBar } from 'react-native'
 import RepositoryItem from '../RepositoryItem'
-import ReviewItem from './ReviewItem'
+import ReviewItem from '../ReviewItem'
 
 const styles = StyleSheet.create({
   separator: {
