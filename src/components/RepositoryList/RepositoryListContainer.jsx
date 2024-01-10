@@ -56,7 +56,6 @@ const ItemSeparator = () => <View style={styles.separator} />;
 //     </SafeAreaView>
 //   )
 // }
-
 // export default RepositoryListContainer;
 
 class RepositoryListContainer extends React.Component {

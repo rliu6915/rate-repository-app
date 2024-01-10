@@ -59,6 +59,11 @@ const AppBar = () => {
     navigate("/signup")
   }
 
+  const onPressFunctionFive = () => {
+    console.log("My reviews pressed")
+    navigate("/myRevies")
+  }
+
   const { loading, error, data } = useQuery(ME, {
     fetchPolicy: 'cache-and-network'
   })
@@ -78,6 +83,7 @@ const AppBar = () => {
         {data.me ? (
           <View style={styles.subContainer}>
             <AppBarTab text="Create a review" onPressFunction={onPressFunctionThree} />
+            <AppBarTab text="My reviews" onPressFunction={onPressFunctionFive} />
             <AppBarTab text="Sign out" onPressFunction={onPressFunctionTwo} />
           </View>
         ) : (
