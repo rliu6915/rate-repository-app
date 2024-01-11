@@ -25,7 +25,7 @@ const Main = () => {
       <View style={styles.content}>
         <Routes>
           <Route path="/" element={<RepositoryList />}/>
-          <Route path="/repository/:userId" element={<Repository />} />
+          <Route path="/repository/:repoId" element={<Repository />} />
           <Route path="/reviewForm" element={<ReviewForm />} />
           <Route path="/myRevies" element={<MyReviews />} />
           <Route path="/signin" element={<SignIn />}/>

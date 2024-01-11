@@ -19,15 +19,15 @@ const styles = StyleSheet.create({
 const ItemSeparator = () => <View style={styles.separator} />;
 
 const Repository = () => {
-  let { userId } = useParams()
+  let { repoId } = useParams()
 
-  const { loading, error, data } = useQuery(GET_REPOSITORY, {
-    variables: { id: userId },
+  const { error, data } = useQuery(GET_REPOSITORY, {
+    variables: { id: repoId },
     fetchPolicy: 'cache-and-network',
   })
 
   const repository = data ? data.repository : null
-  if (loading) return <Text>Loading...</Text>
+  // if (loading) return <Text>Loading...</Text>
   if (error) return <Text>Error : {error}</Text>
 
   const reviewNodes = repository.reviews

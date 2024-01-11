@@ -79,6 +79,7 @@ class RepositoryListContainer extends React.Component {
     const repositoryNodes = repositories
     ? repositories.edges.map(edge => edge.node)
     : []
+    //console.log(repositoryNodes)
 
     return (
       <SafeAreaView style={styles.container}>

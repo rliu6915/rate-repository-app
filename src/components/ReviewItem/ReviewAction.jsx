@@ -1,6 +1,7 @@
 import { View, StyleSheet } from "react-native"
 import Text from "../Text"
 import { Button } from "react-native-paper"
+import { useNavigate } from "react-router-native"
 
 const styles = StyleSheet.create({
   container: {
@@ -17,9 +18,12 @@ const styles = StyleSheet.create({
   },
 })
 
-const ReviewAction = () => {
+const ReviewAction = ({ repoId }) => {
+  const navigate = useNavigate()
+
   const handleViewRepository = () => {
     console.log("View repository")
+    navigate(`/repository/${repoId}`)
   }
 
   const handleDeleteReview = () => {
