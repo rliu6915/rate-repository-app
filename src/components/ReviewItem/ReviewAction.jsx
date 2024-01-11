@@ -1,7 +1,9 @@
-import { View, StyleSheet } from "react-native"
+import { View, StyleSheet, Alert } from "react-native"
 import Text from "../Text"
 import { Button } from "react-native-paper"
 import { useNavigate } from "react-router-native"
+import { useMutation } from "@apollo/client"
+import { DELETE_REVIEW } from "../../graphql/mutations"
 
 const styles = StyleSheet.create({
   container: {
@@ -18,8 +20,13 @@ const styles = StyleSheet.create({
   },
 })
 
-const ReviewAction = ({ repoId }) => {
+const ReviewAction = ({ repoId, reviewId }) => {
   const navigate = useNavigate()
+  const [deleteReview] = useMutation(DELETE_REVIEW, {
+    variables: {
+      "deleteReviewId": reviewId
+    }
+  })
 
   const handleViewRepository = () => {
     console.log("View repository")
@@ -28,6 +35,22 @@ const ReviewAction = ({ repoId }) => {
 
   const handleDeleteReview = () => {
     console.log("Delete review")
+    Alert.alert('Delete review', 'Are you sure you want to delete this review ?', [
+      {
+        text: 'Cancel',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      {
+        text: 'OK', 
+        onPress: onPressDeleteReview,
+      },
+    ]);
+  }
+
+  const onPressDeleteReview = () => {
+    console.log("OnPress delete review")
+    deleteReview()
   }
 
   return (

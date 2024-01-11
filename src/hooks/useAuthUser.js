@@ -6,7 +6,8 @@ const useAuthUser = (ifIncluded) => {
     fetchPolicy: 'cache-and-network',
     variables: {
       "includeReviews": ifIncluded
-    }
+    },
+    pollInterval: 500,
   })
 
   return {loading, error, data }

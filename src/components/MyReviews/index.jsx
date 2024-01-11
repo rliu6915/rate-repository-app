@@ -22,7 +22,7 @@ const MyReviews = () => {
   const reviewNodes = data
   ? data.me.reviews.edges.map(edge => edge.node)
   : []
-  console.log('reviewNodes', reviewNodes)
+  // console.log('reviewNodes', reviewNodes)
 
 
   return (

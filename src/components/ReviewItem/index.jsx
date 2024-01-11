@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
 
 const ReviewItem = ({ review }) => {
   const repoId = review.repositoryId
+  const reviewId = review.id
   return (
     <View style={styles.container}>
       <View style={styles.content}>
@@ -30,7 +31,7 @@ const ReviewItem = ({ review }) => {
         <ReviewContent user={review.user} createdAt={review.createdAt} text={review.text} />
       </View>
       <View style={styles.action}>
-        <ReviewAction repoId={repoId}/>
+        <ReviewAction repoId={repoId} reviewId={reviewId} />
       </View>
     </View>
   )
