@@ -1,10 +1,8 @@
 import { useParams } from 'react-router-native'
-
-import { useQuery } from '@apollo/client'
-import { GET_REPOSITORY } from '../../graphql/queries'
 import { FlatList, Text, SafeAreaView, View, StyleSheet, StatusBar } from 'react-native'
 import RepositoryItem from '../RepositoryItem'
 import ReviewItem from '../ReviewItem'
+import useRepository from '../../hooks/useRepository'
 
 const styles = StyleSheet.create({
   separator: {
@@ -21,10 +19,7 @@ const ItemSeparator = () => <View style={styles.separator} />;
 const Repository = () => {
   let { repoId } = useParams()
 
-  const { loading, error, data } = useQuery(GET_REPOSITORY, {
-    variables: { id: repoId },
-    fetchPolicy: 'cache-and-network',
-  })
+  const { loading, error, data } = useRepository(repoId)
 
   const repository = data ? data.repository : null
 
