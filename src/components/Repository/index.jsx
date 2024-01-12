@@ -3,6 +3,7 @@ import { FlatList, Text, SafeAreaView, View, StyleSheet, StatusBar } from 'react
 import RepositoryItem from '../RepositoryItem'
 import ReviewItem from '../ReviewItem'
 import useRepository from '../../hooks/useRepository'
+import ListFooter from '../ListFooter'
 
 const styles = StyleSheet.create({
   separator: {
@@ -19,16 +20,23 @@ const ItemSeparator = () => <View style={styles.separator} />;
 const Repository = () => {
   let { repoId } = useParams()
 
-  const { loading, error, data } = useRepository(repoId)
-
-  const repository = data ? data.repository : null
+  const { loading, error, repository, fetchMore } = useRepository(repoId, 2)
 
   if (loading) return <Text>Loading...</Text>
   if (error) return <Text>Error : {error}</Text>
 
-  const reviewNodes = data
-  ? data.repository.reviews.edges.map(edge => edge.node)
+  const reviewNodes = repository
+  ? repository.reviews.edges.map(edge => edge.node)
   : []
+
+  const pageHasNext =  repository ? repository.reviews.pageInfo.hasNextPage : false
+
+  const onEndReached = () => {
+    setTimeout(() => {
+      console.log('You have reached the end of the list')
+      fetchMore()
+    }, 2000)
+  }
 
   return (
     <SafeAreaView >
@@ -39,6 +47,9 @@ const Repository = () => {
         keyExtractor={({ id }) => id}
         ItemSeparatorComponent={ItemSeparator}
         ListHeaderComponent={() => <RepositoryItem props={repository} />}
+        ListFooterComponent={() => <ListFooter pageHasNext={pageHasNext}/>}
+        onEndReached={onEndReached}
+        onEndReachedThreshold={0.5}
       />
     </SafeAreaView>
   )

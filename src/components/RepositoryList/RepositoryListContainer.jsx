@@ -8,7 +8,7 @@ import {
 import PressRepoItem from './PressRepoItem';
 import RepositoryListHeader from "./RepositoryListHeader"
 import React from 'react';
-import RepositoruListFooter from './RepositoryListFooter';
+import ListFooter from '../ListFooter';
 
 const styles = StyleSheet.create({
   separator: {
@@ -93,7 +93,7 @@ class RepositoryListContainer extends React.Component {
           onEndReached={onEndReached}
           onEndReachedThreshold={0.5}
           contentContainerStyle={{ paddingBottom: 100 }}
-          ListFooterComponent={() => <RepositoruListFooter pageHasNext={pageHasNext}/>}
+          ListFooterComponent={() => <ListFooter pageHasNext={pageHasNext}/>}
         />
       </View>
     )

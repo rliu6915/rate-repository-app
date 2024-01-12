@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const RepositoruListFooter = ({ pageHasNext }) => {
+const ListFooter = ({ pageHasNext }) => {
   if (pageHasNext) {
     return (
       <View style={styles.container}>
@@ -25,4 +25,4 @@ const RepositoruListFooter = ({ pageHasNext }) => {
   )
 }
 
-export default RepositoruListFooter
+export default ListFooter
