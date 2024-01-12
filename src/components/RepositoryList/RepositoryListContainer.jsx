@@ -2,7 +2,6 @@ import {
   View,
   FlatList,
   StyleSheet,
-  SafeAreaView,
   StatusBar,
 } from 'react-native';
 
@@ -75,14 +74,14 @@ class RepositoryListContainer extends React.Component {
   }
 
   render() {
-    const { repositories } = this.props
+    const { repositories, onEndReached } = this.props
     const repositoryNodes = repositories
     ? repositories.edges.map(edge => edge.node)
     : []
     //console.log(repositoryNodes)
 
     return (
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <FlatList
           ListHeaderComponent={this.renderHeader}
           ListHeaderComponentStyle={styles.listHeader}
@@ -90,8 +89,11 @@ class RepositoryListContainer extends React.Component {
           renderItem={({item}) => <PressRepoItem item={item} />}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={ItemSeparator}
+          onEndReached={onEndReached}
+          onEndReachedThreshold={0.5}
+          contentContainerStyle={{ paddingBottom: 100 }}
         />
-      </SafeAreaView>
+      </View>
     )
   }
 }

@@ -12,6 +12,10 @@ const RepositoryList = () => {
 
   const [debouncedSearchQuery] = useDebounce(searchQuery, 500);
 
+  const onEndReached = () => {
+    console.log('onEndReached')
+  }
+
   // const {error, data } = useQuery(GET_REPOSITORIES, {
   //   fetchPolicy: 'cache-and-network',
   //   variables: {
@@ -39,6 +43,7 @@ const RepositoryList = () => {
       setOrderDirection={setOrderDirection}
       setSearchQuery={setSearchQuery}
       searchQuery={searchQuery}
+      onEndReached={onEndReached}
     />
   )
 }
