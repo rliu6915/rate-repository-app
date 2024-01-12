@@ -20,7 +20,7 @@ const RepositoryList = () => {
   //     searchKeyword: debouncedSearchQuery
   //   }
   // })
-  const {error, repositories, fetchMore } = useRepositories(
+  const {error, repositories, fetchMore, loading } = useRepositories(
     orderBy, orderDirection, debouncedSearchQuery, 6
   )
 
