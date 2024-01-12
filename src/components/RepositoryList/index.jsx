@@ -33,6 +33,8 @@ const RepositoryList = () => {
     // fetchMore()
   }
 
+  const pageHasNext = repositories ? repositories.pageInfo.hasNextPage : false
+
   // const repositories = data ? data.repositories : null
   // console.log('repositories.edges', repositories.edges)
 
@@ -48,7 +50,7 @@ const RepositoryList = () => {
       setSearchQuery={setSearchQuery}
       searchQuery={searchQuery}
       onEndReached={onEndReached}
-      pageHasNext={repositories.pageInfo.hasNextPage}
+      pageHasNext={pageHasNext}
     />
   )
 }
