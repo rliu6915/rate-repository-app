@@ -12,10 +12,6 @@ const RepositoryList = () => {
 
   const [debouncedSearchQuery] = useDebounce(searchQuery, 500);
 
-  const onEndReached = () => {
-    console.log('onEndReached')
-  }
-
   // const {error, data } = useQuery(GET_REPOSITORIES, {
   //   fetchPolicy: 'cache-and-network',
   //   variables: {
@@ -24,14 +20,18 @@ const RepositoryList = () => {
   //     searchKeyword: debouncedSearchQuery
   //   }
   // })
-  const {error, data } = useRepositories(orderBy, orderDirection, debouncedSearchQuery)
+  const {error, repositories, fetchMore } = useRepositories(
+    orderBy, orderDirection, debouncedSearchQuery, 6
+  )
 
-  const repositories = data ? data.repositories : null
+  const onEndReached = () => {
+    console.log('You have reached the end of the list')
+    fetchMore()
+  }
+
+  // const repositories = data ? data.repositories : null
   // console.log('repositories.edges', repositories.edges)
 
-  // if (loading) {
-  //   return <View><Text>Loading...</Text></View>
-  // }
   if (error) return `Error! ${error.message}`;
 
   return (

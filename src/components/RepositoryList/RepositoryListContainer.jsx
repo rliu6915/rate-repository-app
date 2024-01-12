@@ -90,7 +90,7 @@ class RepositoryListContainer extends React.Component {
           keyExtractor={item => item.id}
           ItemSeparatorComponent={ItemSeparator}
           onEndReached={onEndReached}
-          onEndReachedThreshold={0.5}
+          onEndReachedThreshold={0.1}
           contentContainerStyle={{ paddingBottom: 100 }}
         />
       </View>
