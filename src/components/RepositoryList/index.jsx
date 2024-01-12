@@ -20,13 +20,17 @@ const RepositoryList = () => {
   //     searchKeyword: debouncedSearchQuery
   //   }
   // })
-  const {error, repositories, fetchMore, loading } = useRepositories(
+  const {error, repositories, fetchMore } = useRepositories(
     orderBy, orderDirection, debouncedSearchQuery, 6
   )
 
   const onEndReached = () => {
-    console.log('You have reached the end of the list')
-    fetchMore()
+    setTimeout(() => {
+      console.log('You have reached the end of the list')
+      fetchMore()
+    }, 2000)
+    // console.log('You have reached the end of the list')
+    // fetchMore()
   }
 
   // const repositories = data ? data.repositories : null
@@ -44,6 +48,7 @@ const RepositoryList = () => {
       setSearchQuery={setSearchQuery}
       searchQuery={searchQuery}
       onEndReached={onEndReached}
+      pageHasNext={repositories.pageInfo.hasNextPage}
     />
   )
 }

@@ -75,7 +75,7 @@ class RepositoryListContainer extends React.Component {
   }
 
   render() {
-    const { repositories, onEndReached } = this.props
+    const { repositories, onEndReached, pageHasNext } = this.props
     const repositoryNodes = repositories
     ? repositories.edges.map(edge => edge.node)
     : []
@@ -93,7 +93,7 @@ class RepositoryListContainer extends React.Component {
           onEndReached={onEndReached}
           onEndReachedThreshold={0.5}
           contentContainerStyle={{ paddingBottom: 100 }}
-          ListFooterComponent={() => <RepositoruListFooter />}
+          ListFooterComponent={() => <RepositoruListFooter pageHasNext={pageHasNext}/>}
         />
       </View>
     )

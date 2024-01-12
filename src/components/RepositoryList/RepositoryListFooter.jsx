@@ -10,7 +10,14 @@ const styles = StyleSheet.create({
   },
 });
 
-const RepositoruListFooter = () => {
+const RepositoruListFooter = ({ pageHasNext }) => {
+  if (pageHasNext) {
+    return (
+      <View style={styles.container}>
+        <Text fontWeight="bold">Loading...</Text>
+      </View>
+    )
+  }
   return (
     <View style={styles.container}>
       <Text fontWeight="bold">You have reached the end of the list</Text>
